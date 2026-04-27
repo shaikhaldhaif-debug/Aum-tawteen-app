@@ -1,1 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tawteen App</title>
 
+<style>
+body{
+    margin:0;
+    font-family: Arial;
+    background:#f5f5f5;
+}
+
+.container{
+    max-width:400px;
+    margin:auto;
+    background:white;
+    min-height:100vh;
+}
+
+.header{
+    padding:20px;
+}
+
+h1{
+    margin:0;
+    font-size:22px;
+}
+
+.red{
+    color:#c40000;
+}
+
+.search{
+    margin:15px;
+    padding:12px;
+    background:#eee;
+    border-radius:20px;
+}
+
+.grid{
+    display:flex;
+    justify-content:space-around;
+    padding:10px;
+}
+
+.card{
+    text-align:center;
+}
+
+.section{
+    padding:15px;
+}
+
+.job{
+    background:#fff;
+    padding:12px;
+    margin-bottom:10px;
+    border-radius:12px;
+    box-shadow:0 2px 5px rgba(0,0,0,0.1);
+}
+
+.btn{
+    background:#c40000;
+    color:white;
+    padding:6px 12px;
+    border-radius:15px;
+    float:right;
+}
+
+.nav{
+    position:fixed;
+    bottom:0;
+    width:100%;
+    max-width:400px;
+    background:white;
+    display:flex;
+    justify-content:space-around;
+    padding:10px;
+    border-top:1px solid #ddd;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="header">
+<h1>Hello, Shaikha 👋</h1>
+<h1 class="red">Start your future today.</h1>
+</div>
+
+<div class="search">Search for jobs...</div>
+
+<div class="grid">
+<div class="card">Jobs</div>
+<div class="card">Internships</div>
+<div class="card">Track</div>
+<div class="card">Alerts</div>
+</div>
+
+<div class="section">
+<h3>Recommended</h3>
+
+<div class="job">
+Marketing Intern - NBK
+<span class="btn">Apply</span>
+</div>
+
+<div class="job">
+HR Assistant - Zain
+<span class="btn">Apply</span>
+</div>
+
+<div class="job">
+Project Coordinator - Ooredoo
+<span class="btn">Apply</span>
+</div>
+
+</div>
+
+</div>
+
+<div class="nav">
+<div>Home</div>
+<div>Search</div>
+<div>Apps</div>
+<div>Events</div>
+<div>Profile</div>
+</div>
+
+</body>
+</html>
