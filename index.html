@@ -4,611 +4,253 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Tawteen AI Career Hub</title>
-
 <style>
 *{box-sizing:border-box}
-body{
-  margin:0;
-  font-family:Arial, sans-serif;
-  background:#e9e9e9;
-  color:#222;
-}
-.app{
-  max-width:430px;
-  margin:auto;
-  min-height:100vh;
-  background:#fff;
-  position:relative;
-  padding-bottom:85px;
-}
-.top{
-  background:#b5121b;
-  color:white;
-  padding:20px 18px 24px;
-  border-bottom-left-radius:25px;
-  border-bottom-right-radius:25px;
-}
-.topRow{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-}
-.logo{
-  font-size:26px;
-  font-weight:800;
-}
-.logo small{
-  display:block;
-  font-size:10px;
-  font-weight:400;
-}
-.bell{
-  background:white;
-  color:#b5121b;
-  border-radius:50%;
-  width:42px;
-  height:42px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:22px;
-  position:relative;
-  cursor:pointer;
-}
-.bell span{
-  position:absolute;
-  top:-5px;
-  right:-5px;
-  background:#2f7a4e;
-  color:white;
-  font-size:11px;
-  padding:3px 6px;
-  border-radius:50%;
-}
-.search{
-  margin-top:18px;
-  background:white;
-  color:#777;
-  padding:13px 15px;
-  border-radius:25px;
-  cursor:pointer;
-}
-.page{
-  display:none;
-  padding:18px;
-}
+body{margin:0;font-family:Arial,sans-serif;background:#eee;color:#222}
+.app{max-width:430px;margin:auto;min-height:100vh;background:#fff;padding-bottom:85px}
+.header{background:#b32025;color:white;padding:26px 22px;border-bottom-left-radius:28px;border-bottom-right-radius:28px}
+.top{display:flex;justify-content:space-between;align-items:center}
+.logo{font-size:33px;font-weight:800}
+.logo small{display:block;font-size:12px;font-weight:400;margin-top:4px}
+.bell{background:#fff;color:#b32025;width:45px;height:45px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:22px;position:relative;cursor:pointer}
+.bell span{position:absolute;top:-5px;right:-5px;background:#3d7a52;color:#fff;font-size:12px;border-radius:50%;padding:3px 7px}
+.page{display:none;padding:22px}
 .page.active{display:block}
-h1{
-  font-size:25px;
-  margin:10px 0 5px;
-}
-h2{
-  font-size:20px;
-  margin:18px 0 10px;
-}
-.sub{
-  color:#666;
-  font-size:14px;
-  margin:4px 0 12px;
-}
-.grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:12px;
-}
-.option{
-  background:#fff;
-  border:1px solid #eee;
-  border-radius:18px;
-  padding:15px;
-  min-height:115px;
-  box-shadow:0 4px 12px rgba(0,0,0,.07);
-  cursor:pointer;
-}
-.option .icon{
-  font-size:29px;
-  margin-bottom:8px;
-}
-.option b{
-  display:block;
-  font-size:15px;
-}
-.option p{
-  color:#666;
-  font-size:12px;
-  margin:6px 0 0;
-}
-.card{
-  background:white;
-  border:1px solid #eee;
-  border-radius:18px;
-  padding:14px;
-  margin:11px 0;
-  box-shadow:0 4px 12px rgba(0,0,0,.07);
-}
-.row{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:10px;
-}
-.company{
-  display:flex;
-  gap:11px;
-  align-items:center;
-}
-.mark{
-  width:45px;
-  height:45px;
-  border-radius:14px;
-  background:#f8e7e9;
-  color:#b5121b;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-weight:800;
-  font-size:13px;
-}
-.btn{
-  border:none;
-  background:#b5121b;
-  color:white;
-  padding:8px 14px;
-  border-radius:20px;
-  font-weight:700;
-  cursor:pointer;
-}
-.btn.green{background:#357a50}
-.btn.gray{background:#777}
-.btn.outline{
-  background:white;
-  color:#b5121b;
-  border:1px solid #b5121b;
-}
-.tabs{
-  display:flex;
-  gap:8px;
-  overflow-x:auto;
-  margin:12px 0;
-}
-.tab{
-  background:#f3f3f3;
-  padding:8px 13px;
-  border-radius:18px;
-  font-size:13px;
-  white-space:nowrap;
-  cursor:pointer;
-}
-.tab.active{
-  background:#b5121b;
-  color:white;
-}
-.score{
-  margin-top:9px;
-  color:#357a50;
-  font-weight:800;
-  font-size:14px;
-}
-.tag{
-  display:inline-block;
-  background:#f0eeee;
-  padding:5px 9px;
-  border-radius:12px;
-  font-size:12px;
-  margin:6px 4px 0 0;
-}
-.progress{
-  height:8px;
-  background:#e5e5e5;
-  border-radius:10px;
-  overflow:hidden;
-  margin:9px 0;
-}
-.bar{
-  height:100%;
-  background:#357a50;
-}
-.yellow{background:#d4a126}
-.redbar{background:#b5121b}
-.status{
-  font-size:13px;
-  font-weight:800;
-}
-.status.green{color:#357a50}
-.status.yellowText{color:#b78500}
-.status.redText{color:#b5121b}
-.notice{
-  background:#fff7f7;
-  border-left:4px solid #b5121b;
-  padding:12px;
-  border-radius:12px;
-  margin:12px 0;
-  font-size:14px;
-}
-.input{
-  width:100%;
-  border:1px solid #ddd;
-  border-radius:15px;
-  padding:13px;
-  margin:8px 0;
-}
-.eventDate{
-  width:48px;
-  height:48px;
-  border-radius:14px;
-  background:#f8e7e9;
-  color:#b5121b;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-weight:800;
-}
-.hidden{display:none}
-.nav{
-  position:fixed;
-  bottom:0;
-  left:50%;
-  transform:translateX(-50%);
-  max-width:430px;
-  width:100%;
-  background:white;
-  border-top:1px solid #ddd;
-  display:grid;
-  grid-template-columns:repeat(6,1fr);
-  padding:9px 2px 13px;
-}
-.nav div{
-  text-align:center;
-  font-size:10px;
-  color:#777;
-  cursor:pointer;
-}
-.nav span{
-  display:block;
-  font-size:20px;
-  margin-bottom:3px;
-}
-.nav .activeNav{
-  color:#b5121b;
-  font-weight:800;
-}
+.homeHero{text-align:center;padding:20px 5px 10px}
+.homeHero h1{font-size:30px;margin:10px 0 5px}
+.sub{color:#666;font-size:15px;line-height:1.5}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:13px;margin-top:18px}
+.option{background:#fff;border:1px solid #eee;border-radius:20px;padding:18px 12px;text-align:center;box-shadow:0 5px 14px rgba(0,0,0,.08);cursor:pointer;min-height:132px}
+.icon{font-size:32px;margin-bottom:8px}
+.option b{display:block;font-size:15px}
+.option p{font-size:12px;color:#666;margin:7px 0 0;line-height:1.35}
+h1{font-size:27px;margin:8px 0 6px}
+h2{font-size:20px;margin:20px 0 10px}
+.card{background:white;border:1px solid #eee;border-radius:18px;padding:15px;margin:12px 0;box-shadow:0 5px 14px rgba(0,0,0,.07)}
+.row{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.mark{width:48px;height:48px;border-radius:15px;background:#f7e7e8;color:#b32025;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px}
+.company{display:flex;gap:12px;align-items:center}
+.btn{border:0;background:#b32025;color:white;border-radius:20px;padding:9px 15px;font-weight:700;cursor:pointer}
+.btn.green{background:#3d7a52}
+.btn.light{background:#f2f2f2;color:#333}
+.tag{display:inline-block;background:#f1eeee;border-radius:14px;padding:6px 10px;font-size:12px;margin:6px 4px 0 0}
+.progress{height:8px;background:#e5e5e5;border-radius:10px;overflow:hidden;margin:10px 0}
+.bar{height:100%;background:#3d7a52}
+.yellow{background:#d6a72d}.red{background:#b32025}
+.notice{background:#fff7f7;border-left:4px solid #b32025;padding:13px;border-radius:14px;margin:12px 0;line-height:1.4}
+.selectBox{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:12px 0}
+.chip{background:#f3f3f3;border-radius:18px;padding:10px;text-align:center;font-size:13px;cursor:pointer}
+.chip.active{background:#b32025;color:white}
+.eventDate{width:48px;height:48px;border-radius:15px;background:#f7e7e8;color:#b32025;font-weight:800;display:flex;align-items:center;justify-content:center}
+.nav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);max-width:430px;width:100%;background:#fff;border-top:1px solid #ddd;display:grid;grid-template-columns:repeat(6,1fr);padding:10px 2px 14px}
+.nav div{text-align:center;font-size:10.5px;color:#666;cursor:pointer}
+.nav span{display:block;font-size:21px;margin-bottom:3px}
+.nav .on{color:#b32025;font-weight:800}
+.back{margin-bottom:10px;color:#b32025;font-weight:700;cursor:pointer}
 </style>
 </head>
 
 <body>
 <div class="app">
 
-<div class="top">
-  <div class="topRow">
-    <div class="logo">Tawteen <small>AUM Career Services Platform</small></div>
+<div class="header">
+  <div class="top">
+    <div class="logo">Tawteen<small>AUM Career Services Platform</small></div>
     <div class="bell" onclick="showPage('notifications')">🔔<span>6</span></div>
   </div>
-  <div class="search" onclick="showPage('search')">🔍 Search jobs, events, companies, internships...</div>
 </div>
 
-<!-- 1 HOME -->
 <section id="home" class="page active">
-  <h1>Hello, Shaikha</h1>
-  <p class="sub">Your personalized career journey starts here.</p>
+  <div class="homeHero">
+    <h1>Hello, Shaikha 👋</h1>
+    <p class="sub">Choose the service you need today. Tawteen helps AUM students find internships, jobs, events, and career support in one place.</p>
+  </div>
 
   <div class="grid">
-    <div class="option" onclick="showPage('center')">
-      <div class="icon">🏢</div><b>Tawteen Center</b>
-      <p>Career support, CV review, advising</p>
-    </div>
-    <div class="option" onclick="showPage('hub')">
-      <div class="icon">📌</div><b>Events Hub</b>
-      <p>Workshops, fairs, training sessions</p>
-    </div>
-    <div class="option" onclick="showPage('tracker')">
-      <div class="icon">📊</div><b>Application Tracker</b>
-      <p>Track every application status</p>
-    </div>
-    <div class="option" onclick="showPage('ai')">
-      <div class="icon">🤖</div><b>AI Job Matches</b>
-      <p>Jobs matched to major and skills</p>
-    </div>
-    <div class="option" onclick="showPage('careerEvents')">
-      <div class="icon">🎓</div><b>Career Events App</b>
-      <p>Register and check attendance</p>
-    </div>
-    <div class="option" onclick="showPage('cv')">
-      <div class="icon">📄</div><b>CV Analyzer</b>
-      <p>AI feedback and improvement score</p>
-    </div>
+    <div class="option" onclick="showPage('center')"><div class="icon">🏢</div><b>Tawteen Center</b><p>CV review, advisor booking, and career readiness</p></div>
+    <div class="option" onclick="showPage('matches')"><div class="icon">🤖</div><b>AI Job Matches</b><p>Opportunities based on major and skills</p></div>
+    <div class="option" onclick="showPage('tracker')"><div class="icon">📊</div><b>Application Tracker</b><p>Follow every application step clearly</p></div>
+    <div class="option" onclick="showPage('hub')"><div class="icon">📌</div><b>Events Hub</b><p>Workshops, company talks, and career fairs</p></div>
+    <div class="option" onclick="showPage('careerEvents')"><div class="icon">🎓</div><b>Career Events App</b><p>Register, check in, and get certificates</p></div>
+    <div class="option" onclick="showPage('majors')"><div class="icon">📚</div><b>AUM Majors</b><p>Jobs for business, engineering, and IT students</p></div>
   </div>
 
-  <h2>Today’s recommendations</h2>
-  <div class="card row">
-    <div class="company">
-      <div class="mark">KOC</div>
-      <div><b>Junior Mechanical Engineer</b><br><span class="sub">Kuwait Oil Company</span></div>
-    </div>
-    <button class="btn" onclick="showPage('jobDetails')">View</button>
-  </div>
-
-  <div class="card row">
-    <div class="company">
-      <div class="mark">CBK</div>
-      <div><b>Marketing Intern</b><br><span class="sub">Commercial Bank of Kuwait</span></div>
-    </div>
-    <button class="btn" onclick="showPage('jobDetails')">View</button>
-  </div>
+  <h2>Quick update</h2>
+  <div class="notice"><b>New for you:</b> 4 AI matches, 2 upcoming events, and 1 application update.</div>
 </section>
 
-<!-- SEARCH -->
-<section id="search" class="page">
-  <h1>Search</h1>
-  <p class="sub">Search inside the platform.</p>
-  <input class="input" placeholder="Example: engineering, internship, CV workshop">
-
-  <div class="tabs">
-    <div class="tab active">All</div>
-    <div class="tab">Jobs</div>
-    <div class="tab">Events</div>
-    <div class="tab">Companies</div>
-    <div class="tab">Internships</div>
-  </div>
-
-  <div class="card row">
-    <div class="company"><div class="mark">PIC</div><div><b>Chemical Engineering Trainee</b><br><span class="sub">Petrochemical Industries Company</span></div></div>
-    <button class="btn">Apply</button>
-  </div>
-
-  <div class="card row">
-    <div class="company"><div class="mark">STC</div><div><b>IT Support Intern</b><br><span class="sub">stc Kuwait</span></div></div>
-    <button class="btn">Apply</button>
-  </div>
-
-  <div class="card row">
-    <div class="company"><div class="eventDate">30</div><div><b>CV Building Workshop</b><br><span class="sub">AUM Career Hall</span></div></div>
-    <button class="btn green">Register</button>
-  </div>
-</section>
-
-<!-- NOTIFICATIONS -->
 <section id="notifications" class="page">
+  <div class="back" onclick="showPage('home')">← Back</div>
   <h1>Notifications</h1>
-  <p class="sub">Latest updates from Tawteen.</p>
-
-  <div class="notice"><b>Interview Invite</b><br>Kuwait Airways invited you for an interview next week.</div>
-  <div class="notice"><b>Application Update</b><br>Your application for Gulf Bank is now under review.</div>
-  <div class="notice"><b>New Match</b><br>AI found 3 new jobs matching your profile.</div>
-  <div class="notice"><b>Reminder</b><br>CV Workshop starts tomorrow at 12:00 PM.</div>
-  <div class="notice"><b>Attendance</b><br>Your Career Fair attendance was successfully recorded.</div>
+  <p class="sub">Useful alerts, not just decoration.</p>
+  <div class="notice"><b>Interview Invite:</b> Kuwait Airways invited you for an interview.</div>
+  <div class="notice"><b>Application Update:</b> Gulf Bank moved your application to Under Review.</div>
+  <div class="notice"><b>New AI Match:</b> KOC Junior Engineer Trainee matches engineering students.</div>
+  <div class="notice"><b>Event Reminder:</b> CV & LinkedIn workshop is tomorrow.</div>
 </section>
 
-<!-- 2 TAWTEEN CENTER -->
 <section id="center" class="page">
   <h1>Tawteen Center</h1>
-  <p class="sub">A centralized space for AUM students to receive career support.</p>
-
+  <p class="sub">AUM students can access real career support before applying.</p>
   <div class="grid">
-    <div class="option" onclick="showPage('cv')"><div class="icon">📄</div><b>CV Review</b><p>Check your CV score</p></div>
-    <div class="option" onclick="showPage('advisor')"><div class="icon">👩‍💼</div><b>Book Advisor</b><p>Meet Tawteen staff</p></div>
-    <div class="option" onclick="showPage('ai')"><div class="icon">🤖</div><b>AI Matching</b><p>Smart recommendations</p></div>
-    <div class="option" onclick="showPage('tracker')"><div class="icon">📊</div><b>My Progress</b><p>Track applications</p></div>
+    <div class="option" onclick="showPage('cv')"><div class="icon">📄</div><b>CV Analyzer</b><p>Check score and missing sections</p></div>
+    <div class="option" onclick="showPage('advisor')"><div class="icon">👩‍💼</div><b>Book Advisor</b><p>Choose career service appointment</p></div>
+    <div class="option" onclick="showPage('skills')"><div class="icon">🧠</div><b>Skills Builder</b><p>Improve interview and workplace skills</p></div>
+    <div class="option" onclick="showPage('companies')"><div class="icon">🏭</div><b>Partner Companies</b><p>See employers connected with Tawteen</p></div>
   </div>
-
-  <h2>Career readiness</h2>
   <div class="card">
-    <div class="row"><b>Profile Completion</b><b>82%</b></div>
+    <div class="row"><b>Career Readiness</b><b>82%</b></div>
     <div class="progress"><div class="bar" style="width:82%"></div></div>
-    <span class="sub">Add certificates and volunteer experience to improve your profile.</span>
+    <p class="sub">Improve by completing CV review and interview training.</p>
   </div>
 </section>
 
-<!-- ADVISOR -->
-<section id="advisor" class="page">
-  <h1>Book Advisor</h1>
-  <p class="sub">Choose a service and available slot.</p>
-
-  <div class="card">
-    <b>Available services</b><br>
-    <span class="tag">CV Review</span>
-    <span class="tag">Interview Practice</span>
-    <span class="tag">Career Planning</span>
+<section id="matches" class="page">
+  <h1>AI Job Matches</h1>
+  <p class="sub">Select an AUM major to see realistic job matches.</p>
+  <div class="selectBox">
+    <div class="chip active" onclick="showMajor('all')">All</div>
+    <div class="chip" onclick="showMajor('business')">Business</div>
+    <div class="chip" onclick="showMajor('engineering')">Engineering</div>
+    <div class="chip" onclick="showMajor('it')">IT</div>
   </div>
 
-  <div class="card row">
-    <div><b>Sunday</b><br><span class="sub">10:00 AM - 10:30 AM</span></div>
-    <button class="btn">Book</button>
+  <div class="job all business card">
+    <div class="row"><div class="company"><div class="mark">CBK</div><div><b>Marketing Intern</b><br><span class="sub">Commercial Bank of Kuwait</span></div></div><button class="btn" onclick="showPage('jobDetails')">View</button></div>
+    <b style="color:#3d7a52">AI Match: 94%</b><br><span class="tag">Marketing</span><span class="tag">Communication</span>
   </div>
 
-  <div class="card row">
-    <div><b>Tuesday</b><br><span class="sub">1:00 PM - 1:30 PM</span></div>
-    <button class="btn">Book</button>
-  </div>
-</section>
-
-<!-- 3 EVENTS HUB -->
-<section id="hub" class="page">
-  <h1>Events Hub</h1>
-  <p class="sub">Explore academic and career development events.</p>
-
-  <div class="tabs">
-    <div class="tab active">Upcoming</div>
-    <div class="tab">Workshops</div>
-    <div class="tab">Company Talks</div>
-    <div class="tab">Training</div>
+  <div class="job all business card">
+    <div class="row"><div class="company"><div class="mark">GB</div><div><b>Business Analyst Trainee</b><br><span class="sub">Gulf Bank</span></div></div><button class="btn" onclick="showPage('jobDetails')">View</button></div>
+    <b style="color:#3d7a52">AI Match: 91%</b><br><span class="tag">Finance</span><span class="tag">Data Analysis</span>
   </div>
 
-  <div class="card row">
-    <div class="company"><div class="eventDate">28</div><div><b>AUM Career Fair</b><br><span class="sub">Companies, interviews, networking</span></div></div>
-    <button class="btn green">Register</button>
+  <div class="job all engineering card">
+    <div class="row"><div class="company"><div class="mark">KOC</div><div><b>Junior Petroleum Engineer</b><br><span class="sub">Kuwait Oil Company</span></div></div><button class="btn" onclick="showPage('jobDetails')">View</button></div>
+    <b style="color:#3d7a52">AI Match: 93%</b><br><span class="tag">Engineering</span><span class="tag">Field Work</span>
   </div>
 
-  <div class="card row">
-    <div class="company"><div class="eventDate">30</div><div><b>CV & LinkedIn Workshop</b><br><span class="sub">Improve your professional profile</span></div></div>
-    <button class="btn green">Register</button>
+  <div class="job all engineering card">
+    <div class="row"><div class="company"><div class="mark">MEW</div><div><b>Electrical Engineer Trainee</b><br><span class="sub">Ministry of Electricity & Water</span></div></div><button class="btn" onclick="showPage('jobDetails')">View</button></div>
+    <b style="color:#3d7a52">AI Match: 89%</b><br><span class="tag">Electrical</span><span class="tag">Problem Solving</span>
   </div>
 
-  <div class="card row">
-    <div class="company"><div class="eventDate">05</div><div><b>Engineering Career Talk</b><br><span class="sub">KOC and KNPC speakers</span></div></div>
-    <button class="btn green">Register</button>
+  <div class="job all it card">
+    <div class="row"><div class="company"><div class="mark">STC</div><div><b>IT Support Intern</b><br><span class="sub">stc Kuwait</span></div></div><button class="btn" onclick="showPage('jobDetails')">View</button></div>
+    <b style="color:#3d7a52">AI Match: 90%</b><br><span class="tag">IT</span><span class="tag">Technical Support</span>
+  </div>
+
+  <div class="job all it card">
+    <div class="row"><div class="company"><div class="mark">OO</div><div><b>Network Engineer Intern</b><br><span class="sub">Ooredoo Kuwait</span></div></div><button class="btn" onclick="showPage('jobDetails')">View</button></div>
+    <b style="color:#3d7a52">AI Match: 88%</b><br><span class="tag">Networking</span><span class="tag">Systems</span>
   </div>
 </section>
 
-<!-- 4 TRACKER -->
 <section id="tracker" class="page">
   <h1>Application Tracker</h1>
-  <p class="sub">Follow each job application clearly.</p>
-
-  <div class="tabs">
-    <div class="tab active">All</div>
-    <div class="tab">Submitted</div>
-    <div class="tab">Review</div>
-    <div class="tab">Interview</div>
-    <div class="tab">Accepted</div>
-  </div>
-
+  <p class="sub">Students can see what happened after applying.</p>
   <div class="card">
-    <div class="row"><b>IT Support Intern - stc Kuwait</b><span class="status yellowText">Interview</span></div>
+    <div class="row"><b>IT Support Intern - stc</b><b style="color:#d6a72d">Interview</b></div>
     <div class="progress"><div class="bar yellow" style="width:75%"></div></div>
-    <span class="sub">Submitted → Under Review → Interview → Decision</span>
+    <p class="sub">Submitted → Under Review → Interview → Decision</p>
   </div>
-
   <div class="card">
-    <div class="row"><b>Electrical Engineer Trainee - MEW</b><span class="status green">Accepted</span></div>
+    <div class="row"><b>Electrical Engineer Trainee - MEW</b><b style="color:#3d7a52">Accepted</b></div>
     <div class="progress"><div class="bar" style="width:100%"></div></div>
-    <span class="sub">Accepted. Check your email for next steps.</span>
+    <p class="sub">Accepted. Next step: upload required documents.</p>
   </div>
-
   <div class="card">
-    <div class="row"><b>Business Analyst - Gulf Bank</b><span class="status yellowText">Under Review</span></div>
-    <div class="progress"><div class="bar yellow" style="width:55%"></div></div>
-    <span class="sub">Recruiter is reviewing your application.</span>
-  </div>
-
-  <div class="card">
-    <div class="row"><b>Marketing Assistant - Alshaya</b><span class="status redText">Rejected</span></div>
-    <div class="progress"><div class="bar redbar" style="width:100%"></div></div>
-    <span class="sub">AI suggests improving experience keywords.</span>
+    <div class="row"><b>Marketing Assistant - Alshaya</b><b style="color:#b32025">Rejected</b></div>
+    <div class="progress"><div class="bar red" style="width:100%"></div></div>
+    <p class="sub">AI suggests improving experience keywords.</p>
   </div>
 </section>
 
-<!-- 5 AI JOB MATCHES -->
-<section id="ai" class="page">
-  <h1>AI Job Matches</h1>
-  <p class="sub">AI recommends opportunities based on major, GPA, skills, and interests.</p>
-
-  <div class="tabs">
-    <div class="tab active">All</div>
-    <div class="tab">Business</div>
-    <div class="tab">Engineering</div>
-    <div class="tab">IT</div>
-    <div class="tab">Marketing</div>
-  </div>
-
-  <div class="card">
-    <div class="row">
-      <div class="company"><div class="mark">KA</div><div><b>Operations Trainee</b><br><span class="sub">Kuwait Airways</span></div></div>
-      <button class="btn" onclick="showPage('jobDetails')">View</button>
-    </div>
-    <div class="score">AI Match Score: 96%</div>
-    <span class="tag">Operations</span><span class="tag">Business</span><span class="tag">Communication</span>
-  </div>
-
-  <div class="card">
-    <div class="row">
-      <div class="company"><div class="mark">KOC</div><div><b>Junior Petroleum Engineer</b><br><span class="sub">Kuwait Oil Company</span></div></div>
-      <button class="btn" onclick="showPage('jobDetails')">View</button>
-    </div>
-    <div class="score">AI Match Score: 93%</div>
-    <span class="tag">Engineering</span><span class="tag">Field Work</span><span class="tag">Problem Solving</span>
-  </div>
-
-  <div class="card">
-    <div class="row">
-      <div class="company"><div class="mark">OO</div><div><b>Network Engineer Intern</b><br><span class="sub">Ooredoo Kuwait</span></div></div>
-      <button class="btn" onclick="showPage('jobDetails')">View</button>
-    </div>
-    <div class="score">AI Match Score: 90%</div>
-    <span class="tag">IT</span><span class="tag">Networking</span><span class="tag">Technical Support</span>
-  </div>
-
-  <div class="card">
-    <div class="row">
-      <div class="company"><div class="mark">ALS</div><div><b>Brand Marketing Intern</b><br><span class="sub">Alshaya Group</span></div></div>
-      <button class="btn" onclick="showPage('jobDetails')">View</button>
-    </div>
-    <div class="score">AI Match Score: 88%</div>
-    <span class="tag">Marketing</span><span class="tag">Branding</span><span class="tag">Retail</span>
-  </div>
+<section id="hub" class="page">
+  <h1>Events Hub</h1>
+  <p class="sub">Events that AUM students actually need for career readiness.</p>
+  <div class="card row"><div class="company"><div class="eventDate">28</div><div><b>AUM Career Fair</b><br><span class="sub">Meet companies and submit CV</span></div></div><button class="btn green">Register</button></div>
+  <div class="card row"><div class="company"><div class="eventDate">30</div><div><b>CV & LinkedIn Workshop</b><br><span class="sub">Improve professional profile</span></div></div><button class="btn green">Register</button></div>
+  <div class="card row"><div class="company"><div class="eventDate">05</div><div><b>Engineering Career Talk</b><br><span class="sub">KOC, KNPC, PIC speakers</span></div></div><button class="btn green">Register</button></div>
+  <div class="card row"><div class="company"><div class="eventDate">08</div><div><b>Mock Interview Day</b><br><span class="sub">Practice with HR staff</span></div></div><button class="btn green">Register</button></div>
 </section>
 
-<!-- JOB DETAILS -->
-<section id="jobDetails" class="page">
-  <h1>Job Details</h1>
-
-  <div class="card">
-    <div class="company">
-      <div class="mark">KOC</div>
-      <div><b>Junior Engineer / Business Trainee</b><br><span class="sub">Matched from Tawteen AI</span></div>
-    </div>
-
-    <h2>Why this matches you</h2>
-    <span class="tag">Major Match</span>
-    <span class="tag">Skills Match</span>
-    <span class="tag">Fresh Graduate</span>
-
-    <p class="sub">This opportunity matches your academic profile, communication skills, and career interests.</p>
-
-    <h2>Required skills</h2>
-    <p class="sub">Teamwork, Microsoft Office, communication, problem solving, basic technical knowledge.</p>
-
-    <button class="btn">Apply Now</button>
-    <button class="btn outline" onclick="showPage('tracker')">Track Application</button>
-  </div>
-</section>
-
-<!-- 6 CAREER EVENTS APP -->
 <section id="careerEvents" class="page">
   <h1>Career Events App</h1>
-  <p class="sub">A special page for event registration and attendance tracking.</p>
-
-  <div class="card row">
-    <div class="company"><div class="eventDate">28</div><div><b>AUM Career Fair</b><br><span class="sub">Registered</span></div></div>
-    <button class="btn green">Applied</button>
-  </div>
-
-  <div class="card row">
-    <div class="company"><div class="eventDate">30</div><div><b>Interview Simulation Day</b><br><span class="sub">Seat available</span></div></div>
-    <button class="btn">Register</button>
-  </div>
-
+  <p class="sub">Registration, check-in, and certificate tracking.</p>
+  <div class="card row"><div><b>AUM Career Fair</b><br><span class="sub">Registered - QR code ready</span></div><button class="btn green">Applied</button></div>
+  <div class="card row"><div><b>CV Workshop</b><br><span class="sub">Seat confirmed</span></div><button class="btn green">Applied</button></div>
   <div class="card">
-    <b>Attendance Status</b>
+    <b>Attendance Progress</b>
     <div class="progress"><div class="bar" style="width:70%"></div></div>
-    <span class="sub">Registered → QR Check-in → Certificate issued</span>
+    <p class="sub">Registered → QR Check-in → Certificate Issued</p>
   </div>
 </section>
 
-<!-- CV -->
+<section id="majors" class="page">
+  <h1>AUM Majors</h1>
+  <p class="sub">The app supports different AUM students, not only marketing.</p>
+  <div class="card"><b>Business Students</b><br><span class="sub">Marketing, Accounting, Finance, HR, Management, MIS</span></div>
+  <div class="card"><b>Engineering Students</b><br><span class="sub">Mechanical, Electrical, Civil, Industrial, Chemical, Computer Engineering</span></div>
+  <div class="card"><b>IT Students</b><br><span class="sub">Computer Science, Information Systems, Cybersecurity, Networking</span></div>
+</section>
+
 <section id="cv" class="page">
   <h1>CV Analyzer</h1>
-  <p class="sub">AI checks the student CV before applying.</p>
-
+  <p class="sub">AI checks if the CV is ready before applying.</p>
   <div class="card">
-    <div class="row"><b>CV Score</b><b style="color:#357a50">86%</b></div>
+    <div class="row"><b>CV Score</b><b style="color:#3d7a52">86%</b></div>
     <div class="progress"><div class="bar" style="width:86%"></div></div>
   </div>
-
-  <div class="notice"><b>Suggestion 1:</b> Add more measurable achievements.</div>
-  <div class="notice"><b>Suggestion 2:</b> Add technical skills for engineering and IT jobs.</div>
-  <div class="notice"><b>Suggestion 3:</b> Use stronger keywords related to your target role.</div>
-
-  <button class="btn">Upload Updated CV</button>
+  <div class="notice"><b>Suggestion:</b> Add measurable achievements and technical skills.</div>
+  <div class="notice"><b>Suggestion:</b> Add internship, project, and volunteer experience.</div>
 </section>
 
-<!-- NAV -->
+<section id="advisor" class="page">
+  <h1>Book Advisor</h1>
+  <p class="sub">Students can book real support from Tawteen staff.</p>
+  <div class="card row"><div><b>CV Review</b><br><span class="sub">Sunday, 10:00 AM</span></div><button class="btn">Book</button></div>
+  <div class="card row"><div><b>Interview Practice</b><br><span class="sub">Tuesday, 1:00 PM</span></div><button class="btn">Book</button></div>
+</section>
+
+<section id="skills" class="page">
+  <h1>Skills Builder</h1>
+  <p class="sub">Short modules to prepare students for work.</p>
+  <div class="card"><b>Interview Skills</b><br><span class="sub">Practice common questions and answers.</span></div>
+  <div class="card"><b>Professional Email</b><br><span class="sub">Learn how to communicate with employers.</span></div>
+  <div class="card"><b>LinkedIn Profile</b><br><span class="sub">Build a stronger professional presence.</span></div>
+</section>
+
+<section id="companies" class="page">
+  <h1>Partner Companies</h1>
+  <p class="sub">Examples of employers students may connect with.</p>
+  <div class="card"><b>Banking:</b> Gulf Bank, CBK, Boubyan, KFH</div>
+  <div class="card"><b>Engineering/Oil:</b> KOC, KNPC, PIC, MEW</div>
+  <div class="card"><b>Telecom/IT:</b> stc, Zain, Ooredoo, Gulfnet</div>
+  <div class="card"><b>Retail/Business:</b> Alshaya, Abyat, X-cite</div>
+</section>
+
+<section id="jobDetails" class="page">
+  <div class="back" onclick="showPage('matches')">← Back to AI Matches</div>
+  <h1>Job Details</h1>
+  <div class="card">
+    <b>Why AI selected this job</b>
+    <p class="sub">The job matches the student’s major, skills, preferred industry, and experience level.</p>
+    <span class="tag">Major Match</span><span class="tag">Fresh Graduate</span><span class="tag">Skill Fit</span>
+    <h2>Required Skills</h2>
+    <p class="sub">Communication, teamwork, Microsoft Office, technical basics, problem solving.</p>
+    <button class="btn">Apply Now</button>
+    <button class="btn light" onclick="showPage('tracker')">Track Application</button>
+  </div>
+</section>
+
 <div class="nav">
-  <div id="nav-home" class="activeNav" onclick="showPage('home')"><span>🏠</span>Home</div>
-  <div id="nav-center" onclick="showPage('center')"><span>🏢</span>Center</div>
-  <div id="nav-hub" onclick="showPage('hub')"><span>📌</span>Hub</div>
-  <div id="nav-tracker" onclick="showPage('tracker')"><span>📊</span>Track</div>
-  <div id="nav-ai" onclick="showPage('ai')"><span>🤖</span>AI</div>
-  <div id="nav-careerEvents" onclick="showPage('careerEvents')"><span>🎓</span>Events</div>
+  <div id="nav-home" class="on" onclick="showPage('home')"><span>⌂</span>Home</div>
+  <div id="nav-center" onclick="showPage('center')"><span>□</span>Center</div>
+  <div id="nav-matches" onclick="showPage('matches')"><span>◇</span>AI Jobs</div>
+  <div id="nav-tracker" onclick="showPage('tracker')"><span>▦</span>Track</div>
+  <div id="nav-hub" onclick="showPage('hub')"><span>◷</span>Events</div>
+  <div id="nav-majors" onclick="showPage('majors')"><span>☰</span>Majors</div>
 </div>
 
 </div>
@@ -617,12 +259,18 @@ h2{
 function showPage(id){
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
   document.getElementById(id).classList.add('active');
-
-  document.querySelectorAll('.nav div').forEach(n=>n.classList.remove('activeNav'));
-  let nav = document.getElementById('nav-' + id);
-  if(nav){nav.classList.add('activeNav');}
-
+  document.querySelectorAll('.nav div').forEach(n=>n.classList.remove('on'));
+  let nav=document.getElementById('nav-'+id);
+  if(nav){nav.classList.add('on')}
   window.scrollTo(0,0);
+}
+function showMajor(type){
+  document.querySelectorAll('.chip').forEach(c=>c.classList.remove('active'));
+  event.currentTarget.classList.add('active');
+  document.querySelectorAll('.job').forEach(j=>{
+    if(type==='all' || j.classList.contains(type)){j.style.display='block'}
+    else{j.style.display='none'}
+  });
 }
 </script>
 
