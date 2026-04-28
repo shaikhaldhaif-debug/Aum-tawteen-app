@@ -3,310 +3,293 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tawteen Career Hub</title>
+
+<title>Tawteen</title>
+
+<!-- ICONS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
-*{box-sizing:border-box}
-body{margin:0;font-family:Arial,sans-serif;background:#f2f2f2;color:#202020}
-.app{max-width:430px;margin:auto;background:#fff;min-height:100vh;padding-bottom:88px}
-.header{background:#b5121b;color:#fff;padding:30px 24px 34px;border-bottom-left-radius:34px;border-bottom-right-radius:34px}
-.headerRow{display:flex;justify-content:space-between;align-items:center}
-.logo{font-size:34px;font-weight:800}
-.logo small{display:block;font-size:12px;font-weight:400;margin-top:4px}
-.notify{background:#fff;color:#b5121b;border-radius:18px;padding:10px 13px;font-weight:800;cursor:pointer}
-.page{display:none;padding:24px}
-.page.active{display:block}
-.back{color:#b5121b;font-weight:800;margin-bottom:16px;cursor:pointer}
-h1{font-size:29px;margin:8px 0}
-h2{font-size:19px;margin:24px 0 12px}
-p,.sub{color:#666;line-height:1.5;font-size:15px}
-input,textarea{width:100%;border:1px solid #ddd;border-radius:16px;padding:14px;font-size:15px;font-family:Arial;margin:10px 0}
-textarea{min-height:145px;resize:vertical}
-.hero{text-align:center;padding:18px 0 10px}
-.hero h1{font-size:31px}
-.askMain{background:#b5121b;color:#fff;border-radius:28px;padding:26px 22px;text-align:center;margin:22px 0;box-shadow:0 10px 24px rgba(181,18,27,.22);cursor:pointer}
-.askMain b{font-size:29px}
-.askMain p{color:#fff;margin:8px 0 0}
-.sectionLabel{font-size:13px;font-weight:800;color:#777;letter-spacing:.5px;text-transform:uppercase;margin:22px 0 10px}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:13px}
-.tile{border:1px solid #e8e8e8;border-radius:22px;padding:20px 15px;min-height:128px;box-shadow:0 6px 15px rgba(0,0,0,.06);cursor:pointer;background:#fff}
-.tile b{display:block;font-size:18px;margin-bottom:8px}
-.tile p{font-size:13px;margin:0;color:#666}
-.card{background:#fff;border:1px solid #eee;border-radius:18px;padding:16px;margin:12px 0;box-shadow:0 5px 14px rgba(0,0,0,.06)}
-.row{display:flex;justify-content:space-between;align-items:center;gap:10px}
-.btn{border:0;background:#b5121b;color:white;border-radius:20px;padding:9px 15px;font-weight:800;cursor:pointer}
-.btn.green{background:#3d7a52}
-.btn.light{background:#f1f1f1;color:#333}
-.mark{width:48px;height:48px;border-radius:14px;background:#f8e6e8;color:#b5121b;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px}
-.company{display:flex;align-items:center;gap:12px}
-.progress{height:8px;background:#e5e5e5;border-radius:10px;overflow:hidden;margin:10px 0}
-.bar{height:100%;background:#3d7a52}
-.yellow{background:#d6a72d}.red{background:#b5121b}
-.tag{display:inline-block;background:#f1eeee;border-radius:14px;padding:6px 10px;font-size:12px;margin:6px 4px 0 0}
-.tabs{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin:14px 0}
-.tab{background:#f3f3f3;border-radius:16px;padding:10px;text-align:center;font-size:13px;cursor:pointer}
-.tab.active{background:#b5121b;color:white}
-.notice{background:#fff7f7;border-left:4px solid #b5121b;padding:13px;border-radius:14px;margin:12px 0;line-height:1.45}
-.result{background:#f8f8f8;border-radius:16px;padding:14px;margin-top:12px;line-height:1.5}
-.nav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);max-width:430px;width:100%;background:#fff;border-top:1px solid #ddd;display:grid;grid-template-columns:repeat(5,1fr);padding:12px 2px 16px}
-.nav div{text-align:center;font-size:12px;color:#666;cursor:pointer}
-.nav .on{color:#b5121b;font-weight:800}
+body{
+margin:0;
+font-family:Arial;
+background:#f3f3f3;
+}
+
+.app{
+max-width:420px;
+margin:auto;
+background:white;
+min-height:100vh;
+padding-bottom:90px;
+}
+
+/* HEADER */
+.header{
+background:#b5121b;
+color:white;
+padding:25px;
+border-bottom-left-radius:30px;
+border-bottom-right-radius:30px;
+}
+
+.logo{
+font-size:28px;
+font-weight:bold;
+}
+
+.notify{
+background:white;
+color:#b5121b;
+padding:8px 12px;
+border-radius:15px;
+font-weight:bold;
+float:right;
+cursor:pointer;
+}
+
+/* PAGE */
+.page{
+display:none;
+padding:20px;
+}
+
+.page.active{
+display:block;
+}
+
+.back{
+color:#b5121b;
+font-weight:bold;
+margin-bottom:15px;
+cursor:pointer;
+}
+
+/* ASK AI BUTTON */
+.askMain{
+background:#b5121b;
+color:white;
+padding:25px;
+border-radius:25px;
+text-align:center;
+margin:20px 0;
+box-shadow:0 10px 20px rgba(0,0,0,0.15);
+cursor:pointer;
+}
+
+.askMain b{
+font-size:24px;
+}
+
+/* GRID */
+.grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:15px;
+}
+
+/* BOX */
+.tile{
+background:white;
+border-radius:20px;
+padding:20px;
+text-align:center;
+box-shadow:0 5px 15px rgba(0,0,0,0.1);
+cursor:pointer;
+}
+
+.tile b{
+display:block;
+margin-top:10px;
+font-size:16px;
+}
+
+/* ICON STYLE */
+.icon{
+font-size:28px;
+color:#b5121b;
+}
+
+/* NAVBAR */
+.nav{
+position:fixed;
+bottom:0;
+width:100%;
+max-width:420px;
+background:white;
+border-top:1px solid #ddd;
+display:grid;
+grid-template-columns:repeat(5,1fr);
+padding:10px 0;
+}
+
+.nav div{
+text-align:center;
+font-size:12px;
+color:#777;
+cursor:pointer;
+}
+
+.nav .active{
+color:#b5121b;
+font-weight:bold;
+}
 </style>
 </head>
 
 <body>
+
 <div class="app">
 
+<!-- HEADER -->
 <div class="header">
-  <div class="headerRow">
-    <div class="logo">Tawteen<small>AUM Career Services Platform</small></div>
-    <div class="notify" onclick="showPage('notifications')">Alerts 6</div>
-  </div>
+<div class="logo">Tawteen</div>
+<div class="notify" onclick="showPage('notifications')">6</div>
 </div>
 
-<section id="home" class="page active">
-  <div class="hero">
-    <h1>Hello, <span id="studentName">Student</span></h1>
-    <p>Type your name and choose what you need today.</p>
-    <input id="nameInput" placeholder="Student name" oninput="updateName()">
-  </div>
+<!-- HOME -->
+<div id="home" class="page active">
 
-  <div class="askMain" onclick="showPage('askai')">
-    <b>Ask AI</b>
-    <p>Ask about CVs, interviews, jobs, majors, events, or career planning.</p>
-  </div>
+<h2>Hello</h2>
 
-  <div class="sectionLabel">Career Support</div>
-  <div class="grid">
-    <div class="tile" onclick="showPage('center')"><b>Tawteen Center</b><p>Career readiness, advisor booking, and companies.</p></div>
-    <div class="tile" onclick="showPage('cv')"><b>CV AI Check</b><p>Paste your CV and get a score with feedback.</p></div>
-  </div>
+<div class="askMain" onclick="showPage('askai')">
+<b>Ask AI</b>
+<p>Anything about jobs, CV, interviews</p>
+</div>
 
-  <div class="sectionLabel">Opportunities</div>
-  <div class="grid">
-    <div class="tile" onclick="showPage('matches')"><b>AI Job Matches</b><p>Jobs by major, skills, and interests.</p></div>
-    <div class="tile" onclick="showPage('majors')"><b>AUM Majors</b><p>Business, engineering, and IT paths.</p></div>
-  </div>
+<div class="grid">
 
-  <div class="sectionLabel">Progress</div>
-  <div class="grid">
-    <div class="tile" onclick="showPage('tracker')"><b>Tracker</b><p>See submitted, review, interview, and accepted status.</p></div>
-    <div class="tile" onclick="showPage('events')"><b>Career Events</b><p>Register for fairs, workshops, and talks.</p></div>
-  </div>
-</section>
+<div class="tile" onclick="showPage('center')">
+<i class="fa-solid fa-building icon"></i>
+<b>Tawteen Center</b>
+</div>
 
-<section id="askai" class="page">
-  <div class="back" onclick="showPage('home')">← Back</div>
-  <h1>Ask AI</h1>
-  <p>Write any career question and get a quick answer.</p>
-  <textarea id="aiQuestion" placeholder="Example: How can I improve my CV for an engineering internship?"></textarea>
-  <button class="btn" onclick="quickAdvice()">Ask AI</button>
-  <div id="adviceResult" class="result">Type a question and press Ask AI.</div>
-</section>
+<div class="tile" onclick="showPage('matches')">
+<i class="fa-solid fa-robot icon"></i>
+<b>AI Jobs</b>
+</div>
 
-<section id="notifications" class="page">
-  <div class="back" onclick="showPage('home')">← Back</div>
-  <h1>Alerts</h1>
-  <div class="notice"><b>Interview Invite:</b> Kuwait Airways invited you for an interview.</div>
-  <div class="notice"><b>Tracker Update:</b> Gulf Bank moved your status to Under Review.</div>
-  <div class="notice"><b>New Match:</b> KOC Junior Engineer Trainee is available.</div>
-  <div class="notice"><b>Reminder:</b> CV and LinkedIn workshop is tomorrow.</div>
-</section>
+<div class="tile" onclick="showPage('tracker')">
+<i class="fa-solid fa-chart-line icon"></i>
+<b>Tracker</b>
+</div>
 
-<section id="center" class="page">
-  <div class="back" onclick="showPage('home')">← Back</div>
-  <h1>Tawteen Center</h1>
-  <p>Career services in one organized place.</p>
+<div class="tile" onclick="showPage('events')">
+<i class="fa-solid fa-calendar icon"></i>
+<b>Events</b>
+</div>
 
-  <div class="card">
-    <div class="row"><b>Career Readiness</b><b>82%</b></div>
-    <div class="progress"><div class="bar" style="width:82%"></div></div>
-    <p>Complete CV check, advisor meeting, and interview practice to improve.</p>
-  </div>
+<div class="tile" onclick="showPage('cv')">
+<i class="fa-solid fa-file icon"></i>
+<b>CV Check</b>
+</div>
 
-  <div class="grid">
-    <div class="tile" onclick="showPage('cv')"><b>CV Review</b><p>AI score and suggestions.</p></div>
-    <div class="tile" onclick="showPage('advisor')"><b>Book Advisor</b><p>Choose a support slot.</p></div>
-    <div class="tile" onclick="showPage('companies')"><b>Companies</b><p>Employer categories.</p></div>
-    <div class="tile" onclick="showPage('askai')"><b>Ask AI</b><p>Quick career advice.</p></div>
-  </div>
-</section>
+<div class="tile" onclick="showPage('majors')">
+<i class="fa-solid fa-graduation-cap icon"></i>
+<b>Majors</b>
+</div>
 
-<section id="cv" class="page">
-  <div class="back" onclick="showPage('home')">← Back</div>
-  <h1>CV AI Check</h1>
-  <p>Paste CV text. The AI estimates strength and gives feedback.</p>
-  <textarea id="cvText" placeholder="Paste CV text here: education, skills, projects, experience, achievements..."></textarea>
-  <button class="btn" onclick="analyzeCV()">Analyze CV</button>
-  <div id="cvResult" class="result">Paste your CV and press Analyze CV.</div>
-</section>
+</div>
 
-<section id="matches" class="page">
-  <div class="back" onclick="showPage('home')">← Back</div>
-  <h1>AI Job Matches</h1>
-  <p>Choose a major group.</p>
+</div>
 
-  <div class="tabs">
-    <div class="tab active" onclick="showMajor('all')">All</div>
-    <div class="tab" onclick="showMajor('business')">Business</div>
-    <div class="tab" onclick="showMajor('engineering')">Engineering</div>
-    <div class="tab" onclick="showMajor('it')">IT</div>
-  </div>
+<!-- AI PAGE -->
+<div id="askai" class="page">
+<div class="back" onclick="showPage('home')">← Back</div>
+<h2>Ask AI</h2>
+<textarea style="width:100%;padding:15px;border-radius:15px;"></textarea>
+<button style="margin-top:10px;" onclick="alert('AI response demo')">Ask</button>
+</div>
 
-  <div class="job all business card">
-    <div class="row"><div class="company"><div class="mark">CBK</div><div><b>Marketing Intern</b><br><span class="sub">Commercial Bank of Kuwait</span></div></div><button class="btn" onclick="showPage('jobDetails')">View</button></div>
-    <b style="color:#3d7a52">AI Match: 94%</b><br><span class="tag">Marketing</span><span class="tag">Communication</span>
-  </div>
+<!-- CENTER -->
+<div id="center" class="page">
+<div class="back" onclick="showPage('home')">← Back</div>
+<h2>Tawteen Center</h2>
 
-  <div class="job all business card">
-    <div class="row"><div class="company"><div class="mark">GB</div><div><b>Business Analyst Trainee</b><br><span class="sub">Gulf Bank</span></div></div><button class="btn" onclick="showPage('jobDetails')">View</button></div>
-    <b style="color:#3d7a52">AI Match: 91%</b><br><span class="tag">Finance</span><span class="tag">Data Analysis</span>
-  </div>
+<div class="tile">Career Advisor</div>
+<div class="tile">Company List</div>
 
-  <div class="job all engineering card">
-    <div class="row"><div class="company"><div class="mark">KOC</div><div><b>Junior Petroleum Engineer</b><br><span class="sub">Kuwait Oil Company</span></div></div><button class="btn" onclick="showPage('jobDetails')">View</button></div>
-    <b style="color:#3d7a52">AI Match: 93%</b><br><span class="tag">Engineering</span><span class="tag">Field Work</span>
-  </div>
+</div>
 
-  <div class="job all engineering card">
-    <div class="row"><div class="company"><div class="mark">MEW</div><div><b>Electrical Engineer Trainee</b><br><span class="sub">Ministry of Electricity & Water</span></div></div><button class="btn" onclick="showPage('jobDetails')">View</button></div>
-    <b style="color:#3d7a52">AI Match: 89%</b><br><span class="tag">Electrical</span><span class="tag">Problem Solving</span>
-  </div>
+<!-- JOBS -->
+<div id="matches" class="page">
+<div class="back" onclick="showPage('home')">← Back</div>
+<h2>Jobs</h2>
 
-  <div class="job all it card">
-    <div class="row"><div class="company"><div class="mark">STC</div><div><b>IT Support Intern</b><br><span class="sub">stc Kuwait</span></div></div><button class="btn" onclick="showPage('jobDetails')">View</button></div>
-    <b style="color:#3d7a52">AI Match: 90%</b><br><span class="tag">IT</span><span class="tag">Technical Support</span>
-  </div>
-</section>
+<div class="tile">NBK - Marketing</div>
+<div class="tile">KOC - Engineer</div>
 
-<section id="tracker" class="page">
-  <div class="back" onclick="showPage('home')">← Back</div>
-  <h1>Tracker</h1>
+</div>
 
-  <div class="card">
-    <div class="row"><b>IT Support Intern - stc</b><b style="color:#d6a72d">Interview</b></div>
-    <div class="progress"><div class="bar yellow" style="width:75%"></div></div>
-    <p>Submitted → Under Review → Interview → Decision</p>
-  </div>
+<!-- TRACKER -->
+<div id="tracker" class="page">
+<div class="back" onclick="showPage('home')">← Back</div>
+<h2>Tracker</h2>
 
-  <div class="card">
-    <div class="row"><b>Electrical Engineer Trainee - MEW</b><b style="color:#3d7a52">Accepted</b></div>
-    <div class="progress"><div class="bar" style="width:100%"></div></div>
-    <p>Accepted. Next step: upload required documents.</p>
-  </div>
+<div class="tile">Application 1 - Under Review</div>
 
-  <div class="card">
-    <div class="row"><b>Marketing Assistant - Alshaya</b><b style="color:#b5121b">Rejected</b></div>
-    <div class="progress"><div class="bar red" style="width:100%"></div></div>
-    <p>AI suggests improving experience keywords.</p>
-  </div>
-</section>
+</div>
 
-<section id="events" class="page">
-  <div class="back" onclick="showPage('home')">← Back</div>
-  <h1>Career Events</h1>
-  <div class="card row"><div><b>AUM Career Fair</b><br><span class="sub">Meet companies and submit CV</span></div><button class="btn green">Register</button></div>
-  <div class="card row"><div><b>CV and LinkedIn Workshop</b><br><span class="sub">Improve your professional profile</span></div><button class="btn green">Register</button></div>
-  <div class="card row"><div><b>Engineering Career Talk</b><br><span class="sub">KOC, KNPC, PIC speakers</span></div><button class="btn green">Register</button></div>
-</section>
+<!-- EVENTS -->
+<div id="events" class="page">
+<div class="back" onclick="showPage('home')">← Back</div>
+<h2>Events</h2>
 
-<section id="majors" class="page">
-  <div class="back" onclick="showPage('home')">← Back</div>
-  <h1>AUM Majors</h1>
-  <div class="card"><b>Business</b><br><p>Marketing, Accounting, Finance, HR, Management, MIS</p></div>
-  <div class="card"><b>Engineering</b><br><p>Mechanical, Electrical, Civil, Industrial, Chemical, Computer Engineering</p></div>
-  <div class="card"><b>IT</b><br><p>Computer Science, Information Systems, Cybersecurity, Networking</p></div>
-</section>
+<div class="tile">Career Fair</div>
 
-<section id="advisor" class="page">
-  <div class="back" onclick="showPage('center')">← Back</div>
-  <h1>Book Advisor</h1>
-  <div class="card row"><div><b>CV Review</b><br><p>Sunday, 10:00 AM</p></div><button class="btn">Book</button></div>
-  <div class="card row"><div><b>Interview Practice</b><br><p>Tuesday, 1:00 PM</p></div><button class="btn">Book</button></div>
-</section>
+</div>
 
-<section id="companies" class="page">
-  <div class="back" onclick="showPage('center')">← Back</div>
-  <h1>Companies</h1>
-  <div class="card"><b>Banking:</b> Gulf Bank, CBK, Boubyan, KFH</div>
-  <div class="card"><b>Engineering/Oil:</b> KOC, KNPC, PIC, MEW</div>
-  <div class="card"><b>Telecom/IT:</b> stc, Zain, Ooredoo, Gulfnet</div>
-  <div class="card"><b>Retail/Business:</b> Alshaya, Abyat, X-cite</div>
-</section>
+<!-- CV -->
+<div id="cv" class="page">
+<div class="back" onclick="showPage('home')">← Back</div>
+<h2>CV Check</h2>
 
-<section id="jobDetails" class="page">
-  <div class="back" onclick="showPage('matches')">← Back</div>
-  <h1>Job Details</h1>
-  <div class="card">
-    <b>Why AI selected this job</b>
-    <p>The job matches the student’s major, skills, preferred industry, and experience level.</p>
-    <span class="tag">Major Match</span><span class="tag">Fresh Graduate</span><span class="tag">Skill Fit</span>
-    <h2>Required Skills</h2>
-    <p>Communication, teamwork, Microsoft Office, technical basics, and problem solving.</p>
-    <button class="btn">Apply Now</button>
-    <button class="btn light" onclick="showPage('tracker')">Track</button>
-  </div>
-</section>
+<textarea style="width:100%;padding:15px;border-radius:15px;"></textarea>
+<button onclick="alert('CV analyzed')">Analyze</button>
 
+</div>
+
+<!-- MAJORS -->
+<div id="majors" class="page">
+<div class="back" onclick="showPage('home')">← Back</div>
+<h2>AUM Majors</h2>
+
+<div class="tile">Business</div>
+<div class="tile">Engineering</div>
+<div class="tile">IT</div>
+
+</div>
+
+<!-- NOTIFICATIONS -->
+<div id="notifications" class="page">
+<div class="back" onclick="showPage('home')">← Back</div>
+<h2>Notifications</h2>
+
+<div class="tile">Interview invitation</div>
+<div class="tile">New job match</div>
+
+</div>
+
+<!-- NAV -->
 <div class="nav">
-  <div id="nav-home" class="on" onclick="showPage('home')">Home</div>
-  <div id="nav-center" onclick="showPage('center')">Center</div>
-  <div id="nav-matches" onclick="showPage('matches')">Jobs</div>
-  <div id="nav-tracker" onclick="showPage('tracker')">Track</div>
-  <div id="nav-events" onclick="showPage('events')">Events</div>
+<div class="active" onclick="showPage('home')">Home</div>
+<div onclick="showPage('center')">Center</div>
+<div onclick="showPage('matches')">Jobs</div>
+<div onclick="showPage('tracker')">Track</div>
+<div onclick="showPage('events')">Events</div>
 </div>
 
 </div>
 
 <script>
 function showPage(id){
-  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
-  document.getElementById(id).classList.add('active');
-  document.querySelectorAll('.nav div').forEach(n=>n.classList.remove('on'));
-  let nav=document.getElementById('nav-'+id);
-  if(nav){nav.classList.add('on')}
-  window.scrollTo(0,0);
-}
+document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+document.getElementById(id).classList.add('active');
 
-function updateName(){
-  let name=document.getElementById('nameInput').value.trim();
-  document.getElementById('studentName').textContent=name?name:'Student';
+document.querySelectorAll('.nav div').forEach(n=>n.classList.remove('active'));
+if(document.querySelector('.nav div[onclick="showPage(\''+id+'\')"]')){
+document.querySelector('.nav div[onclick="showPage(\''+id+'\')"]').classList.add('active');
 }
-
-function showMajor(type){
-  document.querySelectorAll('.tab').forEach(c=>c.classList.remove('active'));
-  event.currentTarget.classList.add('active');
-  document.querySelectorAll('.job').forEach(j=>{
-    j.style.display=(type==='all'||j.classList.contains(type))?'block':'none';
-  });
-}
-
-function analyzeCV(){
-  let text=document.getElementById('cvText').value.toLowerCase();
-  let score=40;
-  let tips=[];
-  if(text.length>300){score+=15}else{tips.push("Add more details about education, skills, projects, and experience.")}
-  if(text.includes("education")||text.includes("university")||text.includes("aum")){score+=10}else{tips.push("Add an Education section.")}
-  if(text.includes("skill")||text.includes("skills")){score+=10}else{tips.push("Add a clear Skills section.")}
-  if(text.includes("project")||text.includes("projects")){score+=10}else{tips.push("Mention university projects related to your major.")}
-  if(text.includes("intern")||text.includes("experience")||text.includes("work")){score+=10}else{tips.push("Add internship, part-time, volunteer, or training experience.")}
-  if(text.includes("%")||text.includes("increase")||text.includes("improved")||text.includes("achieved")){score+=5}else{tips.push("Add measurable achievements or results.")}
-  if(text.includes("marketing")||text.includes("finance")||text.includes("engineering")||text.includes("it")||text.includes("data")){score+=5}else{tips.push("Add keywords connected to your target field.")}
-  if(score>100){score=100}
-  let level=score>=80?"Strong CV":score>=60?"Good but needs improvement":"Needs more work";
-  document.getElementById('cvResult').innerHTML="<h2>"+score+"% - "+level+"</h2><div class='progress'><div class='bar' style='width:"+score+"%'></div></div><b>AI Feedback:</b><br>"+(tips.length?tips.map(t=>"• "+t).join("<br>"):"Your CV looks strong.");
-}
-
-function quickAdvice(){
-  let q=document.getElementById('aiQuestion').value.toLowerCase();
-  let answer="";
-  if(q.includes("cv")){answer="Use a clear structure: Education, Skills, Projects, Experience, and Achievements. Add job keywords and measurable results."}
-  else if(q.includes("interview")){answer="Prepare a short introduction, research the company, practice common questions, and use examples from university projects."}
-  else if(q.includes("engineering")){answer="Highlight technical tools, senior projects, lab work, safety knowledge, and problem-solving skills."}
-  else if(q.includes("marketing")||q.includes("business")){answer="Highlight communication, teamwork, presentations, market research, Excel, campaigns, and project experience."}
-  else if(q.includes("it")||q.includes("computer")){answer="Highlight programming, databases, networking, cybersecurity, troubleshooting, and technical projects."}
-  else{answer="Start with your target role, improve your CV keywords, attend relevant events, and apply to jobs that match your major and skills."}
-  document.getElementById('adviceResult').innerHTML="<b>AI Advice:</b><br>"+answer;
 }
 </script>
 
